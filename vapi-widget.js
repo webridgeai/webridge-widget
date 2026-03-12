@@ -14,11 +14,11 @@
   // Called by the popup when the countdown finishes
   window.showSummaryNow = function (cn) {
     fetch('https://api.jsonbin.io/v3/b/' + bid + '/latest?t=' + Date.now(), { headers: { 'X-Master-Key': bkey } })
-      .then(function (r) { return r.json(); })
-      .then(function (d) {
+      .then(function (r) { console.log("JSONBin status:", r.status); return r.json(); })
+      .then(function (d) { console.log("JSONBin data:", JSON.stringify(d));
         renderSummary(cn, d.record || {});
       })
-      .catch(function () {
+      .catch(function (e) { console.log("JSONBin error:", e);
         renderSummary(cn, {});
       });
   };
