@@ -397,7 +397,7 @@
     s += '  document.getElementById("av").textContent="\u23f3";';
     s += '  document.getElementById("st").className="";';
     s += '  document.getElementById("st").textContent="Getting your report, please wait...";';
-    s += '  var c=20;';
+    s += '  var c=8;';
     s += '  document.getElementById("tm").textContent="Ready in ~"+c+"s";';
     s += '  var ci=setInterval(function(){c--;document.getElementById("tm").textContent=c>0?"Ready in ~"+c+"s":"Almost ready...";if(c<=0)clearInterval(ci);},1000);';
     s += '  window.opener.triggerSummary();';
@@ -448,7 +448,7 @@
 
         // Set up triggerSummary in parent so popup can call it
         window.triggerSummary = function () {
-          showSummary(cn);
+          setTimeout(function () { showSummary(cn); }, 8000);
         };
 
         startCall(cn);
