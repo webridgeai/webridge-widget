@@ -448,7 +448,7 @@
 
         // Set up triggerSummary in parent so popup can call it
         window.triggerSummary = function () {
-          setTimeout(function () { showSummary(cn); }, 20000);
+          showSummary(cn);
         };
 
         startCall(cn);
