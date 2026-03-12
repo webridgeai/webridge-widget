@@ -129,11 +129,11 @@
     html += '    var temp=(a.temperature||"warm").toLowerCase();';
     html += '    gi("s-name").textContent=cn;';
     html += '    gi("s-src").textContent="WeBridge AI Demo";';
-    html += '    gi("s-intent").textContent=a.intent||"--";';
-    html += '    gi("s-budget").textContent=a.budget||"Not mentioned";';
-    html += '    gi("s-timeline").textContent=a.timeline||"Not mentioned";';
-    html += '    gi("s-loc").textContent=a.location||"Not mentioned";';
-    html += '    gi("s-notes").textContent=a.notes||"--";';
+    html += '    gi("s-intent").textContent=(a.intent&&a.intent!="null")?a.intent:"--";';
+    html += '    gi("s-budget").textContent=(a.budget&&a.budget!="null")?a.budget:"Not mentioned";';
+    html += '    gi("s-timeline").textContent=(a.timeline&&a.timeline!="null")?a.timeline:"Not mentioned";';
+    html += '    gi("s-loc").textContent=(a.location&&a.location!="null")?a.location:"Not mentioned";';
+    html += '    gi("s-notes").textContent=(a.notes&&a.notes!="null")?a.notes:"--";';
     html += '    var te=gi("s-temp");';
     html += '    te.className="hs-value "+(temp==="hot"?"hot":temp==="cold"?"cold":"warm");';
     html += '    te.textContent=temp==="hot"?"Hot":temp==="cold"?"Cold":"Warm";';
@@ -153,7 +153,7 @@
     html += '  document.getElementById("av").textContent="⏳";';
     html += '  document.getElementById("st").className="";';
     html += '  document.getElementById("st").textContent="Getting your report, please wait...";';
-    html += '  var c=10;';
+    html += '  var c=20;';
     html += '  document.getElementById("tm").textContent="Ready in ~"+c+"s";';
     html += '  var ci=setInterval(function(){';
     html += '    c--;';
