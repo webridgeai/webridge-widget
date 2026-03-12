@@ -7,12 +7,13 @@
   var ast = "eafc788d-c2fe-4b9e-ac12-ad72797726d9";
   var sqd = "78eaf66f-72db-4f78-a222-58b6aaf1e849";
   var bid = "69b28821b7ec241ddc60e586";
+  var bkey = "$2a$10$aB8tvnx0wuM6EfxD.3Lm0OKcciC5VDS24yCQfSJhuIfid2Mr6tWcy";
   var popWin = null;
   var callerName = '';
 
   // Called by the popup when the countdown finishes
   window.showSummaryNow = function (cn) {
-    fetch('https://api.jsonbin.io/v3/b/' + bid + '/latest?t=' + Date.now())
+    fetch('https://api.jsonbin.io/v3/b/' + bid + '/latest?t=' + Date.now(), { headers: { 'X-Master-Key': bkey } })
       .then(function (r) { return r.json(); })
       .then(function (d) {
         renderSummary(cn, d.record || {});
